@@ -9,7 +9,7 @@ A cross browser test automation app using `Gauge` and `WebdriverIO`
   - [Execute Tests](#execute-tests)
     - [grunt gauge-tests [options]](#grunt-gauge-tests-options)
     - [yarn commands](#yarn-commands)
-      - [Syntax: `yarn test:<browser>:[bstack]`](#syntax-yarn-testbrowserbstack)
+      - [Syntax: `yarn test:<browser>`](#syntax-yarn-testbrowser)
 
 
 ## Getting Started
@@ -39,15 +39,9 @@ It will run test as per given options.
 `options`
 
 - `--browser=<browserName>` runs test on given browser.(***supported browser: chrome(default), firefox, edge, ie and safari***)
-- `--bstack` runs test against given browser on cloud testing platform: `Browser Stack`
 - `--headless` runs test against given browser in headless mode (***supported browser: chrome, firefox***)
 - `--tags=<tagName>` runs only those `scenario` which is tagged with given tagName.
 - `--env=<envValue>` runs test on given environment (***Valid value: integration, prod***).
-
-```bash
-grunt gauge-tests --browser=ie --bstack
-```
-will run tests on `BrowserStack` against internet explorer
 
 ```bash
 grunt gauge-tests --browser=ie
@@ -55,33 +49,19 @@ grunt gauge-tests --browser=ie
 will run all tests `locally` against internet explorer
 
 ```bash
-grunt gauge-tests --browser=ie --tags=uat
+grunt gauge-tests --browser=ie --tags=search
 ```
-will run all scenarios tagged with `uat` `locally` against internet explorer
-
-```bash
-grunt gauge-tests --browser=edge --tags=uat --bstack
-```
-will run all scenarios tagged with `uat` on `BrowserStack` against microsoft edge
+will run all scenarios tagged with `search` `locally` against internet explorer
 
 ### yarn commands
 
 You can use below yarn commands as well to run test cases
 
-#### Syntax: `yarn test:<browser>:[bstack]`
+#### Syntax: `yarn test:<browser>`
 
 **Example:**
 
 ```
 yarn test:ie will run tests locally
-yarn test:ie:bstack will run tests on BrowserStack
-
-```
-
-**Note:** To execute tests on BrowserStack you have to keep browser stack's credentials in /env/default/gauge.propperties file like as below -
-
-```
-BROWSERSTACK_USERNAME = **************
-BROWSERSTACK_ACCESS_KEY = *************
 
 ```

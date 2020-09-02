@@ -6,11 +6,7 @@
     "test:ie": "grunt gauge-tests --browser=ie",
     "test:chrome": "grunt gauge-tests --browser=chrome",
     "test:firefox": "grunt gauge-tests --browser=firefox",
-    "test:safari:bstack": "grunt gauge-tests --browser=safari --bstack",
-    "test:ie:bstack": "grunt gauge-tests --browser=ie --bstack",
-    "test:edge:bstack": "grunt gauge-tests --browser=edge --bstack",
-    "test:chrome:bstack": "grunt gauge-tests --browser=chrome --bstack",
-    "test:firefox:bstack": "grunt gauge-tests --browser=firefox --bstack"
+    "test:edge": "grunt gauge-tests --browser=edge"
   },
   "repository": {
     "type": "git",

@@ -5,7 +5,7 @@ const {
     name: {
       CHROME, EDGE, FIREFOX, IE, SAFARI,
     },
-  }, browserStackConfig, wdioDefaultOptions,
+  }, wdioDefaultOptions,
 } = require('../lib/constants');
 
 /**
@@ -103,16 +103,6 @@ const getOptions = (browserName) => {
   const options = {};
   options.capabilities = getBrowserCapabilities(browserName);
   options.logLevel = process.env.LOG_LEVEL || wdioDefaultOptions.DEFAULT_LOG_LEVEL;
-  if (process.env.BSTACK) {
-    const { PROTOCOL, HOSTNAME, PORT } = browserStackConfig;
-    options.user = process.env.BROWSERSTACK_USERNAME;
-    options.key = process.env.BROWSERSTACK_ACCESS_KEY;
-    options.port = parseInt(PORT);
-    options.protocol = PROTOCOL;
-    options.hostname = HOSTNAME;
-    options.capabilities.project = 'gauge-wdio-cross-browser-project';
-    options.capabilities.build = 'gauge-wdio-cross-browser-build';
-  }
   return options;
 };
 

@@ -25,11 +25,6 @@ module.exports = {
       WINDOWS_10: '10',
     },
   },
-  browserStackConfig: {
-    HOSTNAME: 'hub-cloud.browserstack.com',
-    PROTOCOL: 'https',
-    PORT: 443,
-  },
   wdioDefaultOptions: {
     DEFAULT_DRIVER_SERVER_PORT: 4444,
     DEFAULT_LOG_LEVEL: 'error',

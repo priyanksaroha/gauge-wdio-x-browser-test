@@ -5,7 +5,6 @@ const {
   GAUGE_BASE_DIR, DEFAULT_RETRIES_COUNT, browsers: { name: { IE, CHROME } }, platforms: { OS: { MacOS_X } },
 } = require('./gauge/lib/constants');
 
-
 module.exports = (grunt) => {
   // load grunt npm packages
   loadGruntTasks(grunt);
@@ -43,11 +42,7 @@ module.exports = (grunt) => {
     process.env.BROWSER = CHROME;
   }
 
-  // Execute on browserstack
-  if (grunt.option('bstack')) {
-    process.env.BSTACK = true;
-  }
-  // option for headless mode
+ // option for headless mode
   if (grunt.option('headless')) {
     if (process.env.BROWSER !== 'chrome' && process.env.BROWSER !== 'firefox') {
       grunt.fail.warn('headless mode is only supported for chrome or firefox');
@@ -116,10 +111,8 @@ module.exports = (grunt) => {
 
   grunt.registerTask('gauge-tests', () => {
     const tasks = [];
-    if (!process.env.BSTACK) {
-      tasks.push('start-server');
-      tasks.unshift('install-drivers');
-    }
+    tasks.push('start-server');
+    tasks.unshift('install-drivers');
     tasks.push('specs');
     grunt.task.run(tasks);
   });
